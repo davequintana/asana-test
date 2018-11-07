@@ -4,7 +4,7 @@
   "description": "Dave Quintana's Take Home Test for Asana",
   "main": "index.html",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "scss": "node-sass --output-style compressed -o dist/css assets/app.scss"
   },
   "repository": {
     "type": "git",
@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/Asana/webdev-take-home-exercise/issues"
   },
-  "homepage": "https://github.com/Asana/webdev-take-home-exercise#readme"
+  "homepage": "https://github.com/Asana/webdev-take-home-exercise#readme",
+  "devDependencies": {
+    "node-sass": "^4.10.0"
+  }
 }
