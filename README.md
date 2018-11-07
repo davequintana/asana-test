@@ -1,5 +1,13 @@
 # Asana WebDev Take-Home Exercise
 
+## To run
+- git clone the project
+- run 'npm install'
+- run 'npm run launch'
+
+The project will build and launch automatically. I did the project in vanilla js. It would have been easier to use a framework but I wanted to show that I understand the fundamentals and how React actually work behind the curtains.
+
+
 ## Instructions
 
 Let's pretend that Asana is actually a pet adoption agency. (Our SF office is so dog-friendly that it's not too far a stretch!) We need a web page that contains an image gallery of the pets we have available for adoption. We'd like you to build it.
