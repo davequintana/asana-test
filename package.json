@@ -6,7 +6,8 @@
   "scripts": {
     "scss": "node-sass --output-style compressed -o dist/css assets/app.scss",
     "uglify": "mkdir -p dist/js/ && uglifyjs assets/*.js -m -c -o dist/js/app.min.js",
-    "serve": "browser-sync start --server --files 'dist/css/*.css, dist/js/*.js'"
+    "serve": "browser-sync start --server --files 'dist/css/*.css, dist/js/*.js'",
+    "lint": "eslint assets/app.js"
   },
   "repository": {
     "type": "git",
@@ -20,6 +21,7 @@
   "homepage": "https://github.com/Asana/webdev-take-home-exercise#readme",
   "devDependencies": {
     "browser-sync": "^2.26.3",
+    "eslint": "^5.8.0",
     "node-sass": "^4.10.0",
     "uglify": "^0.1.5"
   }
