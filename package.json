@@ -8,7 +8,10 @@
     "uglify": "mkdir -p dist/js/ && uglifyjs assets/*.js -m -c -o dist/js/app.min.js",
     "serve": "browser-sync start --server --files 'dist/css/*.css, dist/js/*.js'",
     "lint": "eslint assets/app.js",
-    "imagemin": "imagemin \"assets/images/raw/*\" -v -o dist/images"
+    "imagemin": "imagemin \"assets/images/raw/*\" -v -o dist/images",
+    "build:css": "npm run scss",
+    "build:js": "npm run lint && npm run uglify",
+    "build:images": "npm run imagemin"
   },
   "repository": {
     "type": "git",
