@@ -3,10 +3,9 @@
 // wait for the document to load and be ready to handle js
 window.onload = function() {
   getHTML();
-  console.log('before');
-  (function() {
+  setTimeout(function() {
     init();
-  })();
+  }, 400);
 };
 
 // Using xmlhttprequest to pull in the html snippet
@@ -43,7 +42,25 @@ function runRequest(item, file) {
 
 function init() {
   let dogData = '/assets/data/dogs.json';
-  getData(dogData);
+  let loadMore = document.getElementById('loadMore');
+  let thumbs = document.getElementById('thumbs');
+  let closeMe = document.getElementById('closeMe');
+  let loader = document.getElementById('loader');
+
+  loadMore.addEventListener('click', loadMoreDogs);
+  thumbs.addEventListener('click', launchViewer);
+  closeMe.addEventListener('click', closeViewer);
+  
+  loadMore.style.display = 'none';
+  loader.style.display = 'block';
+
+  // using setTimeout to simulate latency
+  setTimeout(function() {
+    getData(dogData);
+    loader.style.display = 'none';
+    loadMore.style.display = 'block';
+  }, 1000);
+  
 }
 
 function getData(src) {
@@ -77,4 +94,47 @@ function populateData(data) {
     li.appendChild(a).appendChild(img);
     thumbs.appendChild(li);
   });
+}
+
+function loadMoreDogs() {
+  let src = '/assets/data/dogs.json';
+  let loader = document.getElementById('loader');
+  let loadMore = document.getElementById('loadMore');
+
+  loadMore.style.display = 'none';
+  loader.style.display = 'block';
+  // using setTimeout to simulate latency
+  setTimeout(function() {
+    getData(src);
+    loader.style.display = 'none';
+    loadMore.style.display = 'block';
+  }, 1000);
+}
+
+function launchViewer(event) {
+  let thumbnail = event.target.closest('a');
+  if (!thumbnail) return;
+
+  showLargeImage(thumbnail.href, thumbnail.title);
+  showThumbnail(thumbnail.href, thumbnail.title);
+
+  event.preventDefault();
+}
+
+function showLargeImage() {
+  document.body.classList.add('overlay');
+}
+
+function showThumbnail(href, title) {
+  let largeImg = document.getElementById('largeImg');
+  largeImg.src = href;
+  largeImg.alt = title;
+}
+
+function closeViewer(event) {
+  let button = event.target.closest('i');
+  if (!button) return;
+
+  document.body.classList.remove('overlay');
+  event.preventDefault();
 }
