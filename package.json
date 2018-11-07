@@ -1,0 +1,19 @@
+{
+  "name": "dq-test",
+  "version": "1.0.0",
+  "description": "Dave Quintana's Take Home Test for Asana",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Asana/webdev-take-home-exercise.git"
+  },
+  "author": "Dave Quintana",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Asana/webdev-take-home-exercise/issues"
+  },
+  "homepage": "https://github.com/Asana/webdev-take-home-exercise#readme"
+}
