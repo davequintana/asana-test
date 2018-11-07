@@ -40,3 +40,28 @@ a {
   font-family: var(--font-serif);
   text-align: center;
 }
+
+
+// my css
+
+#thumbs {
+  margin: 0 auto;
+  padding: 0;
+  list-style: none;
+  column-count: 4;
+  column-gap: 10px;
+  width: 99%;
+
+  li {
+    display: grid;
+    margin: 0;
+    
+    img {
+      width: 100%;
+      height: auto;
+      margin: 0;
+      padding: 0;
+    }
+  
+  }
+}
