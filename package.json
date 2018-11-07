@@ -4,7 +4,8 @@
   "description": "Dave Quintana's Take Home Test for Asana",
   "main": "index.html",
   "scripts": {
-    "scss": "node-sass --output-style compressed -o dist/css assets/app.scss"
+    "scss": "node-sass --output-style compressed -o dist/css assets/app.scss",
+    "uglify": "mkdir -p dist/js/ && uglifyjs assets/*.js -m -c -o dist/js/app.min.js"
   },
   "repository": {
     "type": "git",
@@ -17,6 +18,7 @@
   },
   "homepage": "https://github.com/Asana/webdev-take-home-exercise#readme",
   "devDependencies": {
-    "node-sass": "^4.10.0"
+    "node-sass": "^4.10.0",
+    "uglify": "^0.1.5"
   }
 }
