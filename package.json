@@ -11,7 +11,10 @@
     "imagemin": "imagemin \"assets/images/raw/*\" -v -o dist/images",
     "build:css": "npm run scss",
     "build:js": "npm run lint && npm run uglify",
-    "build:images": "npm run imagemin"
+    "build:images": "npm run imagemin",
+    "clean": "rimraf dist",
+    "build:all": "npm run clean && npm run build:css && npm run build:js && npm run build:images",
+    "launch": "npm run build:all && npm run serve"
   },
   "repository": {
     "type": "git",
@@ -28,6 +31,7 @@
     "eslint": "^5.8.0",
     "imagemin": "^6.0.0",
     "node-sass": "^4.10.0",
+    "rimraf": "^2.6.2",
     "uglify": "^0.1.5"
   }
 }
