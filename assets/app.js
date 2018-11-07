@@ -3,6 +3,10 @@
 // wait for the document to load and be ready to handle js
 window.onload = function() {
   getHTML();
+  console.log('before');
+  (function() {
+    init();
+  })();
 };
 
 // Using xmlhttprequest to pull in the html snippet
@@ -35,4 +39,8 @@ function runRequest(item, file) {
     }
   }
 
+}
+
+function init() {
+  console.log('setup listeners');
 }
