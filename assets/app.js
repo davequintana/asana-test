@@ -42,5 +42,39 @@ function runRequest(item, file) {
 }
 
 function init() {
-  console.log('setup listeners');
+  let dogData = '/assets/data/dogs.json';
+  getData(dogData);
+}
+
+function getData(src) {
+  let req = new XMLHttpRequest(src);
+  req.responseType = 'json';
+  req.onreadystatechange = processResponse;
+  req.open('GET', src, true);
+  req.send();
+}
+
+function processResponse() {
+  if (this.readyState == 4) {
+    if (this.status == 200) {
+      populateData(this.response);
+    }
+  }
+}
+
+function populateData(data) {
+  let _data = data.dogs;
+  let thumbs = document.getElementById('thumbs');
+
+  _data.forEach((item, idx) => {
+    let li = document.createElement('li');
+    let a = document.createElement('a');
+    let img = document.createElement('img');
+
+    a.href = `/assets/images/raw/${idx+1}.jpeg`;
+    img.src = item.image;
+
+    li.appendChild(a).appendChild(img);
+    thumbs.appendChild(li);
+  });
 }
